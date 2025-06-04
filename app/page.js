@@ -106,7 +106,7 @@ export default function Home() {
             🎤 Tu veux participer ?
           </h2>
           <p className="mb-8 max-w-xl mx-auto text-gray-300">
-            Envoie-nous ta démo + ton Insta. Si la vibe est là, on te capte. On s'occupe du reste.
+            Envoie-nous ta démo + ton Insta. Si la vibe est là, on te capte. On s&apos;occupe du reste.
           </p>
           <form className="w-full max-w-md mx-auto space-y-4">
             <input
