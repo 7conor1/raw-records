@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAW RECORDS - Téléprompteur Auto</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scrolling-text {
+      position: absolute;
+      top: 100%;
+      font-size: 2rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      max-width: 800px;
+      text-align: center;
+      animation: scrollUp linear forwards;
+      animation-duration: var(--scroll-duration, 80s);
+    }
+
+    .controls {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #e50914;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff1f3d;
+    }
+
+    @keyframes scrollUp {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: -300%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="scrolling-text" id="text">
+RAW RECORDS
+Bienvenue dans l’univers de RAW RECORDS.
+Un label brut, indépendant, sans major,
+et 100% porté par la communauté.
+
+CONCEPT EN UNE PHRASE
+Chaque mois, des artistes balancent leurs sons.
+La commu vote.
+Le meilleur est propulsé : prod, clip, coaching.
+Sans contrat.
+
+LE CONCEPT DÉTAILLÉ
+1. Soumission — Chaque artiste envoie son son.
+2. Vote — Le public choisit son favori.
+3. Production — Le gagnant est produit, clippé, coaché.
+4. Promo — Il est mis en lumière par Inox et la commu.
+
+SYSTÈME DE VOTE
+Un vote = une voix.
+Tu peux voter une fois par semaine pour ton artiste préféré.
+Pas de triche, pas de spam.
+Que du vrai soutien.
+
+RAW POINTS
+Chaque action te fait gagner des points.
+Tu partages, tu écoutes, tu votes ? Tu gagnes.
+Tout ce que tu fais te rapporte.
+
+RÉCOMPENSES RAW
+Avec tes points, tu peux débloquer des récompenses.
+Concerts RAW LIVE, t-shirts exclusifs,
+appels avec les artistes ou même sessions studio.
+
+POURQUOI ÇA TUE ?
+Ce n’est pas un label classique.
+Tu gardes tes droits.
+C’est la communauté qui décide. Pas les majors.
+
+ON CHERCHE DES ALLIÉS
+RAW RECORDS c’est une vision, une vibe, une mission.
+Si t’as l’énergie ou juste l’envie d’aider :
+Viens. On cherche des alliés.
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="playScroll()">▶️ Play</button>
+    <button onclick="pauseScroll()">⏸ Pause</button>
+    <button onclick="stopScroll()">⏹ Stop</button>
+    <button onclick="setSpeed(160)">⚡ Vitesse x0.5</button>
+    <button onclick="setSpeed(80)">🎵 Vitesse x1</button>
+    <button onclick="setSpeed(40)">🚀 Vitesse x2</button>
+  </div>
+
+  <script>
+    const text = document.getElementById("text");
+    let isPaused = false;
+    let lastSpeed = 80;
+
+    function playScroll() {
+      text.style.animation = `scrollUp linear forwards`;
+      text.style.animationPlayState = "running";
+      text.style.setProperty('--scroll-duration', lastSpeed + 's');
+    }
+
+    function pauseScroll() {
+      text.style.animationPlayState = "paused";
+      isPaused = true;
+    }
+
+    function stopScroll() {
+      text.style.animation = "none";
+      text.style.top = "100%";
+      isPaused = false;
+    }
+
+    function setSpeed(seconds) {
+      lastSpeed = seconds;
+      text.style.setProperty('--scroll-duration', seconds + 's');
+      if (!isPaused) playScroll();
+    }
+  </script>
+</body>
+</html>
