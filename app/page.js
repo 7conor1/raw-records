@@ -4,6 +4,8 @@
 import { motion } from "framer-motion";
 import Pitch from "@/components/Pitch";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+/* eslint-disable react/no-unescaped-entities */
+
 
 
 export default function Home() {
@@ -163,7 +165,7 @@ export default function Home() {
                   className="w-24 h-24 mx-auto rounded-full mb-4 object-cover border border-red-600"
                 />
                 <h3 className="text-xl font-semibold text-white">{artist.name}</h3>
-                <p className="text-gray-400 text-sm mt-2 italic">"{artist.quote}"</p>
+                <p className="text-gray-400 text-sm mt-2 italic">&quot;{artist.quote}&quot;</p>
               </div>
             ))}
           </div>
@@ -178,7 +180,7 @@ const artistes = [
   {
     name: "Luna R",
     img: "/artists/luna.jpg",
-    quote: "Grâce à RAW RECORDS, j’ai pu sortir mon 1er clip en 48h. Lourd !",
+    quote: "Grâce à RAW RECORDS, j&rsquo;ai pu sortir mon 1er clip en 48h. Lourd !",
   },
   {
     name: "SKYZ",
@@ -188,7 +190,7 @@ const artistes = [
   {
     name: "Yannis D",
     img: "/artists/yannis.jpg",
-    quote: "On m’a coaché, produit et shooté sans signer aucun contrat.",
+    quote: "On m&rsquo;a coaché, produit et shooté sans signer aucun contrat.",
   },
 ];
 
