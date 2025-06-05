@@ -258,7 +258,7 @@ export default function Pitch() {
                 <h2 className="text-xl md:text-2xl font-bold">{slide.title}</h2>
                 <p
                   className={`${
-                    ["RAW RECORDS", "CONCEPT EN UNE PHRASE", "SYSTÈME DE VOTE", "ON CHERCHE DES ALLIÉS"].includes(slide.title)
+                    ["RAW RECORDS", "CONCEPT RÉSUMÉ", "SYSTÈME DE VOTE", "ON CHERCHE DES ALLIÉS"].includes(slide.title)
                       ? "text-base md:text-[17px]"
                       : "text-sm"
                   } text-gray-300 leading-relaxed max-w-xl text-center`}

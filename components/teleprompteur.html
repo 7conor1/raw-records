@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-/* eslint-disable react/no-unescaped-entities */
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -77,15 +76,15 @@
   <div class="container">
     <div class="scrolling-text" id="text">
 RAW RECORDS
-Salut je m'appelle Conor. Je suis musicien, compositeur. Et j'ai un projet un projet de fou a vous proposer 
+Salut je m'appelle Conor. Je suis musicien, compositeur. Et j'ai un projet un projet a vous proposer
 Bienvenue dans l’univers de RAW RECORDS.
 Un label brut, indépendant, sans major,
 et 100% porté par la communauté.
 
 CONCEPT EN UNE PHRASE
-Chaque mois, des artistes balancent leurs sons.
+Chaque mois, des artistes indépendant balancent leurs sons.
 La commu vote.
-Le meilleur est propulsé : prod, clip, coaching.
+Le meilleur est mis en avant : prod, clip, coaching.
 Sans contrat.
 
 LE CONCEPT DÉTAILLÉ
@@ -131,33 +130,34 @@ Viens. On cherche des alliés.
     <button onclick="setSpeed(40)">🚀 Vitesse x2</button>
   </div>
 
-  <script>
-    const text = document.getElementById("text");
-    let isPaused = false;
-    let lastSpeed = 80;
+<script>
+  const text = document.getElementById("text");
+  let lastSpeed = 80;
+  let isPlaying = false;
 
-    function playScroll() {
-      text.style.animation = `scrollUp linear forwards`;
-      text.style.animationPlayState = "running";
-      text.style.setProperty('--scroll-duration', lastSpeed + 's');
-    }
+  function playScroll() {
+    if (isPlaying) return;
+    text.style.animation = "none"; // stop animation
+    void text.offsetWidth; // force reflow (important)
+    text.style.animation = `scrollUp ${lastSpeed}s linear forwards`; // relancer
+    isPlaying = true;
+  }
 
-    function pauseScroll() {
-      text.style.animationPlayState = "paused";
-      isPaused = true;
-    }
+  function pauseScroll() {
+    text.style.animationPlayState = "paused";
+  }
 
-    function stopScroll() {
-      text.style.animation = "none";
-      text.style.top = "100%";
-      isPaused = false;
-    }
+  function stopScroll() {
+    text.style.animation = "none";
+    text.style.top = "100%"; // remettre en bas
+    isPlaying = false;
+  }
 
-    function setSpeed(seconds) {
-      lastSpeed = seconds;
-      text.style.setProperty('--scroll-duration', seconds + 's');
-      if (!isPaused) playScroll();
+  function setSpeed(seconds) {
+    lastSpeed = seconds;
+    if (isPlaying) {
+      playScroll(); // relance à la nouvelle vitesse
     }
-  </script>
-</body>
-</html>
+  }
+</script>
+
