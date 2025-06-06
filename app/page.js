@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import Pitch from "@/components/Pitch";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import VoteBattle from "@/components/VoteBattle"; // en haut
 /* eslint-disable react/no-unescaped-entities */
 
 
@@ -134,6 +135,9 @@ export default function Home() {
             </button>
           </form>
         </section>
+
+        <VoteBattle /> 
+
 
         {/* COMPTEUR AMÉLIORÉ */}
         <motion.div
